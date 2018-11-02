@@ -134,7 +134,6 @@ export class MatPaginator extends _MatPaginatorBase implements OnInit, OnDestroy
   }
   set pageSizeLabels(value: PageSizeLabel[]) {
     this._pageSizeLabels = value;
-    // this._updateDisplayedPageSizeOptions();
   }
   private _pageSizeLabels: PageSizeLabel[] = [];
 
