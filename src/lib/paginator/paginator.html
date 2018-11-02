@@ -15,7 +15,7 @@
           [aria-label]="_intl.itemsPerPageLabel"
           (selectionChange)="_changePageSize($event.value)">
           <mat-option *ngFor="let pageSizeOption of _displayedPageSizeOptions" [value]="pageSizeOption">
-            {{pageSizeOption}}
+            {{getPageSizeLabel(pageSizeOption)}}
           </mat-option>
         </mat-select>
       </mat-form-field>

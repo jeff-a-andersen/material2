@@ -21,6 +21,11 @@ export class PaginatorDemo {
   pageSize = 10;
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
+  pageSizeLabels = [
+    { pageSize: 5, label: 'Five' },
+    { pageSize: 10, label: 'Ten' },
+    { pageSize: 25, label: 'Twenty-Five' }
+  ];
 
   hidePageSize = false;
   showPageSizeOptions = true;

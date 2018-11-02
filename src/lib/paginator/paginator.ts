@@ -54,6 +54,11 @@ export class PageEvent {
   length: number;
 }
 
+export interface PageSizeLabel {
+  pageSize: number;
+  label: string;
+}
+
 // Boilerplate for applying mixins to MatPaginator.
 /** @docs-private */
 export class MatPaginatorBase {}
@@ -121,6 +126,31 @@ export class MatPaginator extends _MatPaginatorBase implements OnInit, OnDestroy
     this._updateDisplayedPageSizeOptions();
   }
   private _pageSizeOptions: number[] = [];
+
+  /** The set of provided page size labels to display to the user. */
+  @Input()
+  get pageSizeLabels(): PageSizeLabel[] {
+    return this._pageSizeLabels;
+  }
+  set pageSizeLabels(value: PageSizeLabel[]) {
+    this._pageSizeLabels = value;
+    // this._updateDisplayedPageSizeOptions();
+  }
+  private _pageSizeLabels: PageSizeLabel[] = [];
+
+  getPageSizeLabel(pageSize: number): string {
+    let labelText = '' + pageSize;
+
+    const labelLookup = this._pageSizeLabels.filter(
+      label => label.pageSize === pageSize
+    );
+
+    if (labelLookup.length > 0) {
+      labelText = labelLookup[0].label;
+    }
+
+    return labelText;
+  }
 
   /** Whether to hide the page size selection UI from the user. */
   @Input()
